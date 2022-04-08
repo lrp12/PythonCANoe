@@ -24,7 +24,7 @@ class CanoeMeasurement:
             time.sleep(1)
 
     def add_on_init_handler(self):
-        from PythonCanoe.PythonCanoe import MeasurementInitHandler
+        from PythonCanoe import MeasurementInitHandler
         win32com.client.WithEvents(self.canoe_measurement, MeasurementInitHandler)
 
     def stop(self):

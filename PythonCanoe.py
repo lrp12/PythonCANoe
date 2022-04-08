@@ -2,9 +2,9 @@ import os.path
 
 from win32com.client import DispatchEx
 
-from PythonCanoe.CANoeCAPL import CAPL
-from PythonCanoe.CANoeMeasurement import CanoeMeasurement
-from PythonCanoe.CANoeTrace import CANoeTrace
+from CANoeCAPL import CAPL
+from CANoeMeasurement import CanoeMeasurement
+from CANoeTrace import CANoeTrace
 
 canoe_app = None
 
@@ -21,9 +21,6 @@ class MeasurementInitHandler:
 class CanoeApp:
 
     def __init__(self, config_file_path: str):
-        # self.canoe_app = get_canoe_instance()
-        # self.canoe_app = DispatchEx('CANoe.Application')
-
         self.canoe_instance = DispatchEx('CANoe.Application')
 
         if not os.path.exists(config_file_path):
@@ -42,6 +39,4 @@ class CanoeApp:
         self.canoe_instance.CAPL.Compile()
 
     def get_config_open_status(self):
-        status = self.canoe_instance.Configuration.OpenConfigurationResult.result
-        return status
-
+        return self.canoe_instance.Configuration.OpenConfigurationResult.result

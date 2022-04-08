@@ -1,6 +1,6 @@
 from typing import List, Union, Optional
 
-from PythonCanoe.CANoeMessage import CANoeMessage
+from CANoeMessage import CANoeMessage
 
 
 class CANoeTrace:
